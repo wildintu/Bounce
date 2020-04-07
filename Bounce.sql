@@ -28,7 +28,7 @@ CREATE TABLE `Secondary` (
   `secName` char(100) DEFAULT NULL,
   `secInput` text NOT NULL,
   `anonymous` tinyint(1) NOT NULL,
-  `timeStamp` DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `id_idx` (`origId`),
@@ -58,7 +58,7 @@ CREATE TABLE `main` (
   `pollName` char(100) NOT NULL,
   `pollInput` text NOT NULL,
   `ideaType` varchar(45) NOT NULL,
-  `timeStamp`DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `userid_UNIQUE` (`userid`)
