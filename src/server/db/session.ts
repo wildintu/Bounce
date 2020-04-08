@@ -1,10 +1,10 @@
 import { Query } from './index';
 
-// const getAllSessions = async () => 
-// Query('SELECT * from tags');
+// const getAllSession = async () => 
+// Query('SELECT * from main');
 
 // const getOneSession = async (id: number) => {
-//     return Query('SELECT * FROM tags WHERE id = ?', [id]);
+//     return Query('SELECT * FROM main WHERE id = ?', [id]);
 // };
 
 // const postOneSession = async (name: string, description: string, displaytype: any) => {
@@ -21,7 +21,7 @@ import { Query } from './index';
 // Query('DELETE FROM sessions WHERE id =?', [id])
 
 // export default {
-//     getAllSessions,
+//     getAllSession,
 //     getOneSession,
 //     deleteSession
 // }
