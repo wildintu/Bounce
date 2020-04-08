@@ -10,7 +10,7 @@ const Forum: React.FC<ForumProps> = () => {
                 <div className="card shadow">
                     <div className="card-body text-center">
                         <h1 className="text-primary text-center">Forum Setup</h1>
-                        <Link to ="/forum"><Button className="float-right">Let Get Started?</Button></Link>
+                        <Link to ="/diagram"><Button className="float-right">Let Get Started?</Button></Link>
                     </div>
                 </div>
             </section>
