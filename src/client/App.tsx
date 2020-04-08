@@ -7,6 +7,7 @@ import Business from './Components/Business';
 import GroupProject from './Components/GroupProject';
 import Idea from './Components/Idea';
 import Forum from './Components/Forum';
+import Diagram from './Components/diagram';
 
 const App: React.FC<AppProps> = () => {
 	return (
@@ -28,6 +29,7 @@ const App: React.FC<AppProps> = () => {
 					<Idea />
 				</Route>
 				<Route path="/forum" component = { Forum }></Route>
+				<Route path="/diagram" component = { Diagram }></Route>
 			</Switch>
 		</BrowserRouter>
 	)
