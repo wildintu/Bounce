@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 const Business: React.FC<BusinessProps> = () => {
 
@@ -14,7 +16,7 @@ const Business: React.FC<BusinessProps> = () => {
                         Another utilization of this tool is being able to use it to survey your workforce. As an employer, you don’t have an easy tool to survey the people that are in your business every day outside of setting up a suggestion jar.
                         Bounce can be your digital suggestion jar, ensuring unbiased input from your employees.
                         This gives your workers an oppurtunity to be heard and gives you a clearer view of oppurtunities to improve your organization. </p>
-                        <button className="text-primary float-right"> Let Get Started?</button>
+                        <Link to ="/forum"><Button className="float-right">Let Get Started?</Button></Link>
                     </div>
                 </div>
             </section>

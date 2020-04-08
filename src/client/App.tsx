@@ -6,26 +6,28 @@ import ClassRoom from './Components/ClassRoom';
 import Business from './Components/Business';
 import GroupProject from './Components/GroupProject';
 import Idea from './Components/Idea';
+import Forum from './Components/Forum';
 
 const App: React.FC<AppProps> = () => {
 	return (
 		<BrowserRouter>
 			<Switch>
-				<Route exact path="/">
+				<Route exact path="/" component = { HomePage }>
 					<HomePage />
 				</Route>
-				<Route exact path ="/classroom">
+				<Route exact path ="/classroom" component = { ClassRoom }>
 					<ClassRoom />
 				</Route>
-				<Route exact path ="/business">
+				<Route exact path ="/business" component = { Business }>
 					<Business />
 				</Route>
-				<Route exact path ="/groupproject">
+				<Route exact path ="/groupproject" component = { GroupProject }>
 					<GroupProject />
 				</Route>
-				<Route exact path ="/idea">
+				<Route exact path ="/idea" component = { Idea }>
 					<Idea />
 				</Route>
+				<Route path="/forum" component = { Forum }></Route>
 			</Switch>
 		</BrowserRouter>
 	)

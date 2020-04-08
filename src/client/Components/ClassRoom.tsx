@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 const ClassRoom: React.FC<ClassroomProps> = () => {
 
@@ -13,8 +15,7 @@ const ClassRoom: React.FC<ClassroomProps> = () => {
             This is where Bounce can help. Using our unique survey method, you can map out what your student’s strengths and weaknesses are.
             You just have to set up one of our polls simply asking each student what they feel like they don’t understand in the curiculum.
             You’ll have the option to require each student to submit atleast once. Once everyone has submitted at least once we’ll make a chart so you can literally see where pain points are. For example, if you’re a computer science teacher, and you see that everyone submitted they don’t understand typescript, that lets you know to go over typescript again.</p>
-            <button className="text-primary float-right"> Let Get Started?</button>
-
+            <Link to ="/forum"><Button className="float-right">Let Get Started?</Button></Link>
           </div>
         </div>
       </section>
