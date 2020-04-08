@@ -55,31 +55,31 @@ const router = express.Router();
 //     }
 // })
 
-// router.delete('/essions/:id?', async (req, res) => {
+// router.delete('/sessions/:id?', async (req, res) => {
 //     let id = parseInt(req.params.id, 10);
 //     try {
 //         let sessions = await DB.Sessions.del(id);
-//         res.json(blogs);
+//         res.json(sessions);
 //     } catch(e) {
 //         console.log(e);
 //         res.sendStatus(500);
 //     }
 // })
 
-// router.get('/api/tags', async (req, res) => {
+// router.get('/ideas', async (req, res) => {
 //     try {
-//         let tags = await DB.Tags.tAll();
-//         res.json(tags);
+//         let ideas = await DB.Ideas.tAll();
+//         res.json(ideas);
 //     } catch(e) {
 //         console.log(e);
 //         res.sendStatus(500);
 //     }
 // })
 
-// router.get('/api/tags/:id', async (req, res) => {
+// router.get('/ideas/:id', async (req, res) => {
 //     try {
-//         let tags = await DB.Tags.tOne(parseInt(req.params.id, 10));
-//         res.json(tags);
+//         let ideas = await DB.Ideas.tOne(parseInt(req.params.id, 10));
+//         res.json(ideas);
 //     } catch(e) {
 //         console.log(e);
 //         res.sendStatus(500);
