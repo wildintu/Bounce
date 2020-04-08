@@ -11,7 +11,7 @@ app.use(apiRouter);
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../public', 'index.html'))
 });
-// app.get(["/","/Forms","/Blogs/:id/admin","/Blogs/:id/details"], (req, res) => res.sendFile(path.join(__dirname, '../public', 'index.html')))
+// app.get(["/","/Forms","/Session/:id/admin","/Session/:id/details"], (req, res) => res.sendFile(path.join(__dirname, '../public', 'index.html')))
 
 
 const port = process.env.PORT || 3000;
