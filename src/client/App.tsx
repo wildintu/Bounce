@@ -13,23 +13,13 @@ const App: React.FC<AppProps> = () => {
 	return (
 		<BrowserRouter>
 			<Switch>
-				<Route exact path="/" component = { HomePage }>
-					<HomePage />
-				</Route>
-				<Route exact path ="/classroom" component = { ClassRoom }>
-					<ClassRoom />
-				</Route>
-				<Route exact path ="/business" component = { Business }>
-					<Business />
-				</Route>
-				<Route exact path ="/groupproject" component = { GroupProject }>
-					<GroupProject />
-				</Route>
-				<Route exact path ="/idea" component = { Idea }>
-					<Idea />
-				</Route>
-				<Route path="/forum" component = { Forum }></Route>
-				<Route path="/diagram" component = { Diagram }></Route>
+				<Route exact path="/" component = { HomePage } />
+				<Route exact path ="/classroom" component = { ClassRoom } />
+				<Route exact path ="/business" component = { Business } />
+				<Route exact path ="/groupproject" component = { GroupProject } />
+				<Route exact path ="/idea" component = { Idea } />
+				<Route exact path="/forum" component = { Forum } />
+				<Route exact path="/diagram" component = { Diagram } />
 			</Switch>
 		</BrowserRouter>
 	)
