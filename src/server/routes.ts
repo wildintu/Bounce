@@ -9,53 +9,53 @@ const router = express.Router();
 
 // router.get('/', async (req, res) => {
 //     try {
-//         let sessions = await DB.sessions.all();
-//         res.json(sessions);
+//         let session = await DB.session.all();
+//         res.json(session);
 //     } catch(e) {
 //         console.log(e);
 //         res.sendStatus(500);
 //     }
 // })
 
-// router.get('/sessions/:id', async (req, res) => {
+// router.get('/session/:id', async (req, res) => {
 //     try {
-//         let sessions = await DB.session.one(parseInt(req.params.id, 10));
-//         res.json(sessions[0]);
+//         let session = await DB.session.one(parseInt(req.params.id, 10));
+//         res.json(session[0]);
 //     } catch(e) {
 //         console.log(e);
 //         res.sendStatus(500);
 //     }
 // })
 
-// router.post('/sessions', async (req, res) => {
+// router.post('/session', async (req, res) => {
 //     let name = req.body.name;
 //     let description = req.body.description;
 //     let displayType = parseInt(req.body.authorid, 10);
 //     let id = parseInt(req.body.tagid, 10)
 //     try {
-//         let sessions = await DB.Sessions.post(name, description, displayType, id);
-//         res.json(sessions);
+//         let session = await DB.Session.post(name, description, displayType, id);
+//         res.json(session);
 //     } catch(e) {
 //         console.log(e);
 //         res.sendStatus(500);
 //     }
 // })
 
-// router.put('/sessions/:id?', async (req, res) => {
+// router.put('/session/:id?', async (req, res) => {
 //     let id = parseInt(req.params.id, 10);
 //     let name = req.body.name;
 //     let description = req.body.description;
 //     let displayType = parseInt(req.body.authorid, 10);
 //     try {
-//         let sessions = await DB.Sessions.put(id, name, description, dislayType);
-//         res.json(sessions);
+//         let session = await DB.Sessions.put(id, name, description, dislayType);
+//         res.json(session);
 //     } catch(e) {
 //         console.log(e);
 //         res.sendStatus(500);
 //     }
 // })
 
-// router.delete('/sessions/:id?', async (req, res) => {
+// router.delete('/session/:id?', async (req, res) => {
 //     let id = parseInt(req.params.id, 10);
 //     try {
 //         let sessions = await DB.Sessions.del(id);
@@ -66,20 +66,20 @@ const router = express.Router();
 //     }
 // })
 
-// router.get('/ideas', async (req, res) => {
+// router.get('/input', async (req, res) => {
 //     try {
-//         let ideas = await DB.Ideas.tAll();
-//         res.json(ideas);
+//         let input = await DB.Input.tAll();
+//         res.json(input);
 //     } catch(e) {
 //         console.log(e);
 //         res.sendStatus(500);
 //     }
 // })
 
-// router.get('/ideas/:id', async (req, res) => {
+// router.get('/input/:id', async (req, res) => {
 //     try {
-//         let ideas = await DB.Ideas.tOne(parseInt(req.params.id, 10));
-//         res.json(ideas);
+//         let input = await DB.Ideas.tOne(parseInt(req.params.id, 10));
+//         res.json(input);
 //     } catch(e) {
 //         console.log(e);
 //         res.sendStatus(500);
