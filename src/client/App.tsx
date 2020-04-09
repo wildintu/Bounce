@@ -12,6 +12,7 @@ import Bar from './Components/Subcomponents/Bar';
 
 const App: React.FC<AppProps> = () => {
 	return (
+		<div style={{background: '#0091ea'}}>
 		<BrowserRouter>
 			<Bar />
 			<Switch>
@@ -24,6 +25,7 @@ const App: React.FC<AppProps> = () => {
 				<Route exact path="/diagram" component = { Diagram } />
 			</Switch>
 		</BrowserRouter>
+		</div>
 	)
 }
 
