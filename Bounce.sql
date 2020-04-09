@@ -22,7 +22,7 @@
 -- Table structure for table `Secondary`
 --
 
-DROP TABLE `Secondary`;
+-- DROP TABLE `Secondary`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Secondary` (
@@ -53,7 +53,7 @@ UNLOCK TABLES;
 -- Table structure for table `main`
 --
 
-DROP TABLE `main`;
+-- DROP TABLE `main`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `main` (
