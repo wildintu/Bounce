@@ -30,7 +30,7 @@ CREATE TABLE `Secondary` (
   `origId` int(11) NOT NULL,
   `secName` char(100) DEFAULT NULL,
   `secInput` text NOT NULL,
-  `anonymous` tinyint(1) NOT NULL,
+  `anonymous` tinyint(1) NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
