@@ -3,83 +3,83 @@ import DB from './db';
 
 const router = express.Router();
 
-router.get('/api/hello', (req, res, next) => {
-    res.json('World');
-});
+// router.get('/api/hello', (req, res, next) => {
+//     res.json('World');
+// });
 
-// router.get('/api/blogs', async (req, res) => {
+// router.get('/', async (req, res) => {
 //     try {
-//         let blogs = await DB.Blogs.all();
-//         res.json(blogs);
+//         let session = await DB.session.all();
+//         res.json(session);
 //     } catch(e) {
 //         console.log(e);
 //         res.sendStatus(500);
 //     }
 // })
 
-// router.get('/api/blogs/:id', async (req, res) => {
+// router.get('/session/:id', async (req, res) => {
 //     try {
-//         let blogs = await DB.Blogs.one(parseInt(req.params.id, 10));
-//         res.json(blogs[0]);
+//         let session = await DB.session.one(parseInt(req.params.id, 10));
+//         res.json(session[0]);
 //     } catch(e) {
 //         console.log(e);
 //         res.sendStatus(500);
 //     }
 // })
 
-// router.post('/api/blogs', async (req, res) => {
-//     let title = req.body.title;
-//     let content = req.body.content;
-//     let authorid = parseInt(req.body.authorid, 10);
-//     let tagid = parseInt(req.body.tagid, 10)
+// router.post('/session', async (req, res) => {
+//     let name = req.body.name;
+//     let description = req.body.description;
+//     let displayType = parseInt(req.body.authorid, 10);
+//     let id = parseInt(req.body.tagid, 10)
 //     try {
-//         let blogs = await DB.Blogs.post(title, content, authorid, tagid);
-//         res.json(blogs);
+//         let session = await DB.Session.post(name, description, displayType, id);
+//         res.json(session);
 //     } catch(e) {
 //         console.log(e);
 //         res.sendStatus(500);
 //     }
 // })
 
-// router.put('/api/blogs/:id?', async (req, res) => {
+// router.put('/session/:id?', async (req, res) => {
 //     let id = parseInt(req.params.id, 10);
-//     let title = req.body.title;
-//     let content = req.body.content;
-//     let authorid = parseInt(req.body.authorid, 10);
+//     let name = req.body.name;
+//     let description = req.body.description;
+//     let displayType = parseInt(req.body.authorid, 10);
 //     try {
-//         let blogs = await DB.Blogs.put(id, title, content, authorid);
-//         res.json(blogs);
+//         let session = await DB.Sessions.put(id, name, description, dislayType);
+//         res.json(session);
 //     } catch(e) {
 //         console.log(e);
 //         res.sendStatus(500);
 //     }
 // })
 
-// router.delete('/api/blogs/:id?', async (req, res) => {
+// router.delete('/session/:id?', async (req, res) => {
 //     let id = parseInt(req.params.id, 10);
 //     try {
-//         let blogs = await DB.Blogs.del(id);
-//         res.json(blogs);
+//         let sessions = await DB.Sessions.del(id);
+//         res.json(sessions);
 //     } catch(e) {
 //         console.log(e);
 //         res.sendStatus(500);
 //     }
 // })
 
-// router.get('/api/tags', async (req, res) => {
+// router.get('/input', async (req, res) => {
 //     try {
-//         let tags = await DB.Tags.tAll();
-//         res.json(tags);
+//         let input = await DB.Input.tAll();
+//         res.json(input);
 //     } catch(e) {
 //         console.log(e);
 //         res.sendStatus(500);
 //     }
 // })
 
-// router.get('/api/tags/:id', async (req, res) => {
+// router.get('/input/:id', async (req, res) => {
 //     try {
-//         let tags = await DB.Tags.tOne(parseInt(req.params.id, 10));
-//         res.json(tags);
+//         let input = await DB.Ideas.tOne(parseInt(req.params.id, 10));
+//         res.json(input);
 //     } catch(e) {
 //         console.log(e);
 //         res.sendStatus(500);

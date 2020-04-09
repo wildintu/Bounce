@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 const GroupProject: React.FC<GroupProjectProps> = () => {
 
@@ -14,7 +16,7 @@ const GroupProject: React.FC<GroupProjectProps> = () => {
                         Where can we meet up to work on this together? Where are we going out to eat to celebrate our finished product?
                         All of these decisions can take up so much valuable time and energy when you know the clock is ticking to get what feels like the real work done, while you’re still in the purgatory of getting the game plan together.
                         This is where Bounce can help. Using our survey technology and data visualization tools, group members can share ideas on an equal playing field, and members of the group can vote in real time on what ideas they want to move forward with. Saving precious time you could be spending getting the project done.</p>
-                        <button className="text-primary float-right"> Let Get Started?</button>
+                        <Link to ="/forum"><Button className="float-right">Let Get Started?</Button></Link>
                     </div>
                 </div>
             </section>

@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 const Idea: React.FC<IdeaProps> = () => {
 
@@ -12,7 +14,7 @@ const Idea: React.FC<IdeaProps> = () => {
                         We also know how much easier it is to bring a creative idea to life when you can bounce it off a fellow creative.
                         The big problem with that can be distance. It can be hard to brainstorm with your friend in Seattle when you’re all the way in Austin and the best you can do to make up the distance is with a webcam.
                         This is where Bounce can come in. Using our poll to create a web of ideas, you can literally see your ideas come to life. </p>
-                        <button className="text-primary float-right"> Let Get Started?</button>
+                        <Link to ="/forum"><Button className="float-right">Let Get Started?</Button></Link>
                     </div>
                 </div>
             </section>
