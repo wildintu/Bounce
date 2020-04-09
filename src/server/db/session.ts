@@ -7,9 +7,9 @@ const getOneSession = async (id: number) => {
     return Query('SELECT * FROM main WHERE id = ?', [id]);
 };
 
-const postOneSession = async (userid: number, origUserName: string, origUserPost: string, ideaType: string) => {
-    let values = [userid, origUserName, origUserPost, ideaType];
-    return Query('INSERT INTO main(userid, origUserName, origUserPost, ideaType) VALUES(?,?,?,?)', values)
+const postOneSession = async (origUserName: string, origUserPost: string, ideaType: string) => {
+    let values = [origUserName, origUserPost, ideaType];
+    return Query('INSERT INTO main(origUserName, origUserPost, ideaType) VALUES(?,?,?)', values)
 }
 
 // const updateOneSession = async (id: number, origUserName: string, origUserPost: string, ideaType: string) => {
