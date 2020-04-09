@@ -26,7 +26,7 @@ DROP TABLE `Secondary`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Secondary` (
-  `id` int(11) NOT NULL,
+  `id` int(11) auto_increment,
   `origId` int(11) NOT NULL,
   `secName` char(100) DEFAULT NULL,
   `secInput` text NOT NULL,
@@ -57,7 +57,7 @@ DROP TABLE `main`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `main` (
-  `id` int(11) NOT NULL,
+  `id` int(11) auto_increment,
   `userid` int(11) NOT NULL,
   `origUserName` char(100) NOT NULL,
   `origUserPost` text NOT NULL,
