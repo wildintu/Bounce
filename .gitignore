@@ -1,4 +1,4 @@
 node_modules/
 src/server/config
-dist/
+dist
 public/js/app.js
