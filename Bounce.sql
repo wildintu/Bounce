@@ -4,6 +4,9 @@
 -- ------------------------------------------------------
 -- Server version	5.7.29
 
+-- CREATE DATABASE bounce;
+-- USE bounce;
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -19,7 +22,7 @@
 -- Table structure for table `Secondary`
 --
 
-DROP TABLE IF EXISTS `Secondary`;
+DROP TABLE `Secondary`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Secondary` (
@@ -49,7 +52,7 @@ UNLOCK TABLES;
 -- Table structure for table `main`
 --
 
-DROP TABLE IF EXISTS `main`;
+DROP TABLE `main`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `main` (
@@ -83,4 +86,17 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-07 13:25:41
+-- Dump completed on 2020-04-07 13:25:41INSERT INTO `bounce-schema`.`main`
+
+
+INSERT INTO main
+VALUES (1, 1, 'Chris', 'what about a cooking show for kids on youtube', 'busniess');
+
+INSERT INTO main
+VALUES (2, 2, 'Bob', 'should i start a trucking business for mothers', 'busniess');
+
+INSERT INTO secondary
+VALUES (1, 1, 'Bob', 'there are tons of youtube cooking show, no', 'y');
+
+INSERT INTO secondary
+VALUES (2, 2, 'Chris', 'i suggest doing your research first on it.', 'n');
