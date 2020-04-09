@@ -5,7 +5,7 @@
 -- Server version	5.7.29
 
 -- CREATE DATABASE bounce;
--- USE bounce;
+USE bounce;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,6 +18,34 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+--
+-- Table structure for table `main`
+--
+
+DROP TABLE `main`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `main` (
+  `id` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `origUserName` char(100) NOT NULL,
+  `origUserPost` text NOT NULL,
+  `ideaType` varchar(45) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  UNIQUE KEY `userid_UNIQUE` (`userid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `main`
+--
+
+LOCK TABLES `main` WRITE;
+/*!40000 ALTER TABLE `main` DISABLE KEYS */;
+/*!40000 ALTER TABLE `main` ENABLE KEYS */;
+UNLOCK TABLES;
 --
 -- Table structure for table `Secondary`
 --
@@ -48,34 +76,6 @@ LOCK TABLES `Secondary` WRITE;
 /*!40000 ALTER TABLE `Secondary` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `main`
---
-
-DROP TABLE `main`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `main` (
-  `id` int(11) NOT NULL,
-  `userid` int(11) NOT NULL,
-  `origUserName` char(100) NOT NULL,
-  `origUserPost` text NOT NULL,
-  `ideaType` varchar(45) NOT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
-  UNIQUE KEY `userid_UNIQUE` (`userid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `main`
---
-
-LOCK TABLES `main` WRITE;
-/*!40000 ALTER TABLE `main` DISABLE KEYS */;
-/*!40000 ALTER TABLE `main` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -89,14 +89,14 @@ UNLOCK TABLES;
 -- Dump completed on 2020-04-07 13:25:41INSERT INTO `bounce-schema`.`main`
 
 
-INSERT INTO main (id, userid, origUserId, origUserPost, ideaType)
+INSERT INTO main (id, userid, origUserName, origUserPost, ideaType)
 VALUES (1, 1, 'Chris', 'what about a cooking show for kids on youtube', 'businiess');
 
-INSERT INTO main (id, userid, origUserId, origUserPost, ideaType)
+INSERT INTO main (id, userid, origUserName, origUserPost, ideaType)
 VALUES (2, 2, 'Bob', 'should i start a trucking business for mothers', 'businiess');
 
 INSERT INTO secondary (id, origId, secName, secInput, anonymous)
-VALUES (1, 1, 'Bob', 'there are tons of youtube cooking show, no', 'y');
+VALUES (1, 1, 'Bob', 'there are tons of youtube cooking show, no', '1');
 
 INSERT INTO secondary (id, origId, secName, secInput, anonymous)
-VALUES (2, 2, 'Chris', 'i suggest doing your research first on it.', 'n');
+VALUES (2, 2, 'Chris', 'i suggest doing your research first on it.', '0');
