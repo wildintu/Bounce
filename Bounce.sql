@@ -89,14 +89,14 @@ UNLOCK TABLES;
 -- Dump completed on 2020-04-07 13:25:41INSERT INTO `bounce-schema`.`main`
 
 
-INSERT INTO main
-VALUES (1, 1, 'Chris', 'what about a cooking show for kids on youtube', 'busniess');
+INSERT INTO main (id, userid, origUserId, origUserPost, ideaType)
+VALUES (1, 1, 'Chris', 'what about a cooking show for kids on youtube', 'businiess');
 
-INSERT INTO main
-VALUES (2, 2, 'Bob', 'should i start a trucking business for mothers', 'busniess');
+INSERT INTO main (id, userid, origUserId, origUserPost, ideaType)
+VALUES (2, 2, 'Bob', 'should i start a trucking business for mothers', 'businiess');
 
-INSERT INTO secondary
+INSERT INTO secondary (id, origId, secName, secInput, anonymous)
 VALUES (1, 1, 'Bob', 'there are tons of youtube cooking show, no', 'y');
 
-INSERT INTO secondary
+INSERT INTO secondary (id, origId, secName, secInput, anonymous)
 VALUES (2, 2, 'Chris', 'i suggest doing your research first on it.', 'n');
