@@ -58,7 +58,7 @@ UNLOCK TABLES;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `main` (
   `id` int(11) auto_increment,
-  `userid` int(11) NOT NULL,
+  `userid` int(11) NULL,
   `origUserName` char(100) NOT NULL,
   `origUserPost` text NOT NULL,
   `ideaType` varchar(45) NOT NULL,
