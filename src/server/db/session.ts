@@ -9,7 +9,7 @@ const getOneSession = async (id: number) => {
 
 const postOneSession = async (origUserName: string, origUserPost: string, ideaType: string) => {
     let values = [origUserName, origUserPost, ideaType];
-    return Query('INSERT INTO main(origUserName, origUserPost, ideaType) VALUES(?,?,?)', values)
+    return Query('INSERT INTO main(origUserName, origUserPost, ideaType) VALUES(?,?,?,?)', values)
 }
 
 // const updateOneSession = async (id: number, origUserName: string, origUserPost: string, ideaType: string) => {
