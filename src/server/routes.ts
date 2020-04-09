@@ -7,53 +7,55 @@ const router = express.Router();
 //     res.json('World');
 // });
 
-// router.get('/', async (req, res) => {
-//     try {
-//         let session = await DB.session.all();
-//         res.json(session);
-//     } catch(e) {
-//         console.log(e);
-//         res.sendStatus(500);
-//     }
-// })
+router.get('/session', async (req, res) => {
+    try {
+        let session = await DB.session.getAllSession();
+        res.json(session);
+    } catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+})
 
-// router.get('/session/:id', async (req, res) => {
-//     try {
-//         let session = await DB.session.one(parseInt(req.params.id, 10));
-//         res.json(session[0]);
-//     } catch(e) {
-//         console.log(e);
-//         res.sendStatus(500);
-//     }
-// })
+router.get('/session/:id', async (req, res) => {
+    try {
+        let session = await DB.session.getOneSession(parseInt(req.params.id, 10));
+        res.json(session[0]);
+    } catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+})
 
-// router.post('/session', async (req, res) => {
-//     let name = req.body.name;
-//     let description = req.body.description;
-//     let displayType = parseInt(req.body.authorid, 10);
-//     let id = parseInt(req.body.tagid, 10)
-//     try {
-//         let session = await DB.Session.post(name, description, displayType, id);
-//         res.json(session);
-//     } catch(e) {
-//         console.log(e);
-//         res.sendStatus(500);
-//     }
-// })
+router.post('/session', async (req, res) => {
+    let userid = parseInt(req.body.userid, 10);
+    let origUserName = req.body.origUserName;
+    let origUserPost = req.body.origUserPost;
+    let ideaType = req.body.ideaType
+    try {
+        let session = await DB.session.postOneSession(userid, origUserName, origUserPost, ideaType);
+        res.json(session);
+    } catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+})
 
-// router.put('/session/:id?', async (req, res) => {
-//     let id = parseInt(req.params.id, 10);
-//     let name = req.body.name;
-//     let description = req.body.description;
-//     let displayType = parseInt(req.body.authorid, 10);
-//     try {
-//         let session = await DB.Sessions.put(id, name, description, dislayType);
-//         res.json(session);
-//     } catch(e) {
-//         console.log(e);
-//         res.sendStatus(500);
-//     }
-// })
+router.put('/session/:id?', async (req, res) => {
+    // let userid = parseInt(req.params.id, 10);
+    let origUserName = req.body.origUserName;
+    let origUserPost = req.body.origUserPost;
+    let ideaType = req.body.ideaType;
+    let id = parseInt(req.body.id, 10);
+    console.log(id)
+    try {
+        let session = await DB.session.updateOneSession(origUserName, origUserPost, ideaType, id);
+        res.json(session);
+    } catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+})
 
 // router.delete('/session/:id?', async (req, res) => {
 //     let id = parseInt(req.params.id, 10);
