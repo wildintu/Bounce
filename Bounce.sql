@@ -4,6 +4,9 @@
 -- ------------------------------------------------------
 -- Server version	5.7.29
 
+-- CREATE DATABASE bounce;
+-- USE bounce;
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -19,7 +22,7 @@
 -- Table structure for table `Secondary`
 --
 
-DROP TABLE IF EXISTS `Secondary`;
+DROP TABLE `Secondary`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Secondary` (
@@ -50,7 +53,7 @@ UNLOCK TABLES;
 -- Table structure for table `main`
 --
 
-DROP TABLE IF EXISTS `main`;
+DROP TABLE `main`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `main` (

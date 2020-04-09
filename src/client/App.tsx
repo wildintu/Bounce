@@ -8,10 +8,13 @@ import GroupProject from './Components/GroupProject';
 import Idea from './Components/Idea';
 import Forum from './Components/Forum';
 import Diagram from './Components/diagram';
+import Bar from './Components/Subcomponents/Bar';
 
 const App: React.FC<AppProps> = () => {
 	return (
+		<div style={{background: '#0091ea'}}>
 		<BrowserRouter>
+			<Bar />
 			<Switch>
 				<Route exact path="/" component = { HomePage } />
 				<Route exact path ="/classroom" component = { ClassRoom } />
@@ -22,6 +25,7 @@ const App: React.FC<AppProps> = () => {
 				<Route exact path="/diagram" component = { Diagram } />
 			</Switch>
 		</BrowserRouter>
+		</div>
 	)
 }
 

@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 const HomePage: React.FC<HomeProps> = () => {
 
     return (
-        <main className="container my-5">
+        <div style={{background: '#0091ea'}}>
+        <main className="container my-5 ">
             <section className="justify-content-center">
                 <div className="card shadow">
                     <div className="card-body text-center">
@@ -27,6 +28,7 @@ const HomePage: React.FC<HomeProps> = () => {
                 </div>
             </section>
         </main>
+        </div>
     );
 
 
