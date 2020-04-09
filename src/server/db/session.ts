@@ -9,13 +9,13 @@ const getOneSession = async (id: number) => {
 
 const postOneSession = async (origUserName: string, origUserPost: string, ideaType: string) => {
     let values = [origUserName, origUserPost, ideaType];
-    return Query('INSERT INTO main(origUserName, origUserPost, ideaType) VALUES(?,?,?,?)', values)
+    return Query('INSERT INTO main(origUserName, origUserPost, ideaType) VALUES(?,?,?)', values)
 }
 
-// const updateOneSession = async (id: number, origUserName: string, origUserPost: string, ideaType: string) => {
-//     let values = [id, origUserName, origUserPost, ideaType];
-//     return Query('UPDATE main SET origUserName=?, origUserPost=? ,ideaType=? WHERE id = ?', values);
-// }
+const updateOneSession = async (origUserName: string, origUserPost: string, ideaType: string, id: number) => {
+    let values = [origUserName, origUserPost, ideaType, id];
+    return Query('UPDATE main SET origUserName=?, origUserPost=? ,ideaType=? WHERE id = ?', values);
+}
 
 // const deleteSession = async (id: number) =>
 // Query('DELETE FROM session WHERE id =?', [id])
@@ -24,6 +24,6 @@ export default {
     getAllSession,
     getOneSession,
     postOneSession,
-    // updateOneSession,
+    updateOneSession,
     // deleteSession
 }
