@@ -31,7 +31,7 @@ CREATE TABLE `Secondary` (
   `secName` char(100) DEFAULT NULL,
   `secInput` text NOT NULL,
   `anonymous` tinyint(1) NOT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `id_idx` (`origId`),
@@ -45,6 +45,7 @@ CREATE TABLE `Secondary` (
 
 LOCK TABLES `Secondary` WRITE;
 /*!40000 ALTER TABLE `Secondary` DISABLE KEYS */;
+INSERT INTO `Secondary` VALUES (1,1,'Bob','there are tons of youtube cooking show, no',0,'2020-04-09 16:36:06'),(2,2,'Chris','i suggest doing your research first on it.',1,'2020-04-09 16:36:25');
 /*!40000 ALTER TABLE `Secondary` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -61,7 +62,7 @@ CREATE TABLE `main` (
   `origUserName` char(100) NOT NULL,
   `origUserPost` text NOT NULL,
   `ideaType` varchar(45) NOT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `userid_UNIQUE` (`userid`)
@@ -74,6 +75,7 @@ CREATE TABLE `main` (
 
 LOCK TABLES `main` WRITE;
 /*!40000 ALTER TABLE `main` DISABLE KEYS */;
+INSERT INTO `main` VALUES (1,1,'Chris','what about a cooking show for kids on youtube','business','2020-04-09 16:33:24'),(2,2,'Bob','should i start a trucking business for mothers','business','2020-04-09 16:35:19');
 /*!40000 ALTER TABLE `main` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -86,17 +88,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-07 13:25:41INSERT INTO `bounce-schema`.`main`
-
-
-INSERT INTO main (id, userid, origUserId, origUserPost, ideaType)
-VALUES (1, 1, 'Chris', 'what about a cooking show for kids on youtube', 'businiess');
-
-INSERT INTO main (id, userid, origUserId, origUserPost, ideaType)
-VALUES (2, 2, 'Bob', 'should i start a trucking business for mothers', 'businiess');
-
-INSERT INTO secondary (id, origId, secName, secInput, anonymous)
-VALUES (1, 1, 'Bob', 'there are tons of youtube cooking show, no', 'y');
-
-INSERT INTO secondary (id, origId, secName, secInput, anonymous)
-VALUES (2, 2, 'Chris', 'i suggest doing your research first on it.', 'n');
+-- Dump completed on 2020-04-09 11:45:06
