@@ -26,14 +26,14 @@ CREATE TABLE `Secondary` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `origId` int(11) NOT NULL,
   `secName` char(100) DEFAULT NULL,
-  `secInput` text NOT NULL,
+  `secInput` text,
   `anonymous` tinyint(1) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `id_idx` (`origId`),
   CONSTRAINT `mainPrimary` FOREIGN KEY (`origId`) REFERENCES `main` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +42,7 @@ CREATE TABLE `Secondary` (
 
 LOCK TABLES `Secondary` WRITE;
 /*!40000 ALTER TABLE `Secondary` DISABLE KEYS */;
+INSERT INTO `Secondary` VALUES (3,5,'Carol','Who needs attendance when you can just feed everyone to tigers?',NULL,'2020-04-10 03:45:57'),(4,5,'Carol','Who needs attendance when you can just feed everyone to tigers?',NULL,'2020-04-10 03:48:12'),(5,5,'Carol','Who needs attendance when you can just feed everyone to tigers?',NULL,'2020-04-10 03:48:55'),(6,5,'Carol','Who needs attendance when you can just feed everyone to tigers?',NULL,'2020-04-10 03:49:13'),(7,5,'Carol','Who needs attendance when you can just feed everyone to tigers?',NULL,'2020-04-10 03:49:55'),(8,5,'Carol','Who needs attendance when you can just feed everyone to tigers?',NULL,'2020-04-10 03:50:18'),(9,5,'Carol','Who needs attendance when you can just feed everyone to tigers?',NULL,'2020-04-10 03:50:33'),(10,5,'Carol','Who needs attendance when you can just feed everyone to tigers?',NULL,'2020-04-10 03:52:46'),(11,9,'Joe Exotic','Carol is a b$$$$$$',NULL,'2020-04-10 04:15:15');
 /*!40000 ALTER TABLE `Secondary` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,7 +63,7 @@ CREATE TABLE `main` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `userid_UNIQUE` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,6 +72,7 @@ CREATE TABLE `main` (
 
 LOCK TABLES `main` WRITE;
 /*!40000 ALTER TABLE `main` DISABLE KEYS */;
+INSERT INTO `main` VALUES (5,NULL,'Jake','Best Ways of Checking Attendance','classroom','2020-04-10 00:23:59'),(6,NULL,'Garrett','Best Ways to Wipe a Bunch of Laptops','classroom','2020-04-10 03:00:44'),(7,NULL,'Yeti','skfjasjfjfjsadkfjasfjsakjfaskjfls','business','2020-04-10 04:02:53'),(8,NULL,'Hankey','fdhdhdhdhdhdhdhdhd','classroom','2020-04-10 04:13:50'),(9,NULL,'Hankey','fdhdhdhdhdhdhdhdhd','classroom','2020-04-10 04:15:15');
 /*!40000 ALTER TABLE `main` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -83,4 +85,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-09 16:08:19
+-- Dump completed on 2020-04-09 23:31:38

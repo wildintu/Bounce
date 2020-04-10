@@ -17,9 +17,9 @@ router.get('/session', async (req, res) => {
     }
 })
 
-router.get('/session/:id', async (req, res) => {
+router.get('/session/:sessionid', async (req, res) => {
     try {
-        let session = await DB.session.getOneSession(parseInt(req.params.id, 10));
+        let session = await DB.session.getOneSession(parseInt(req.params.sessionid, 10));
         res.json(session[0]);
     } catch(e) {
         console.log(e);
@@ -28,12 +28,12 @@ router.get('/session/:id', async (req, res) => {
 })
 
 router.post('/session', async (req, res) => {
-    let userid = parseInt(req.body.userid, 10);
     let origUserName = req.body.origUserName;
     let origUserPost = req.body.origUserPost;
-    let ideaType = req.body.ideaType
-    try {
-        let session = await DB.session.postOneSession(origUserName, origUserPost, ideaType);
+    let ideaType = req.body.ideaType;
+    try { 
+        let session: any = await DB.session.postOneSession(origUserName, origUserPost, ideaType);
+        let origId: any = await DB.input.postOneInput(session.insertId)
         res.json(session);
     } catch(e) {
         console.log(e);
@@ -41,51 +41,62 @@ router.post('/session', async (req, res) => {
     }
 })
 
-// router.put('/session/:id?', async (req, res) => {
-//     // let userid = parseInt(req.params.id, 10);
-//     let origUserName = req.body.origUserName;
-//     let origUserPost = req.body.origUserPost;
-//     let ideaType = req.body.ideaType;
-//     let id = parseInt(req.body.id, 10);
-//     console.log(id)
-//     try {
-//         let session = await DB.session.updateOneSession(origUserName, origUserPost, ideaType, id);
-//         res.json(session);
-//     } catch(e) {
-//         console.log(e);
-//         res.sendStatus(500);
-//     }
-// })
+router.put('/session/:sessionid?', async (req, res) => {
+    let origUserName = req.body.origUserName;
+    let origUserPost = req.body.origUserPost;
+    let ideaType = req.body.ideaType;
+    let sessionid = parseInt(req.params.sessionid, 10);
+    try {
+        let session = await DB.session.updateOneSession(origUserName, origUserPost, ideaType, sessionid);
+        res.json(session);
+    } catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+})
 
-// router.delete('/session/:id?', async (req, res) => {
-//     let id = parseInt(req.params.id, 10);
-//     try {
-//         let sessions = await DB.Sessions.del(id);
-//         res.json(sessions);
-//     } catch(e) {
-//         console.log(e);
-//         res.sendStatus(500);
-//     }
-// })
+router.delete('/session/:sessionid?', async (req, res) => {
+    let sessionid = parseInt(req.params.sessionid, 10);
+    try {
+        let sessions = await DB.session.deleteSession(sessionid);
+        res.json(sessions);
+    } catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+})
 
-// router.get('/input', async (req, res) => {
-//     try {
-//         let input = await DB.Input.tAll();
-//         res.json(input);
-//     } catch(e) {
-//         console.log(e);
-//         res.sendStatus(500);
-//     }
-// })
+router.get('/session/:sessionid?/input', async (req, res) => {
+    try {
+        let input = await DB.input.getAllInput();
+        res.json(input);
+    } catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+})
 
-// router.get('/input/:id', async (req, res) => {
-//     try {
-//         let input = await DB.Ideas.tOne(parseInt(req.params.id, 10));
-//         res.json(input);
-//     } catch(e) {
-//         console.log(e);
-//         res.sendStatus(500);
-//     }
-// })
+router.get('/session/:sessionid?/input/:inputid?', async (req, res) => {
+    try {
+        let input = await DB.input.getOneInput(parseInt(req.params.id, 10));
+        res.json(input);
+    } catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+})
+
+router.post('/session/:sessionid?/input', async (req, res) => {
+    let origId = parseInt(req.params.sessionid, 10);
+    let secName = req.body.secName;
+    let secInput = req.body.secInput;
+    try {
+        let session = await DB.input.putToOrigId(origId, secName, secInput);
+        res.json(session);
+    } catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+})
 
 export default router;
