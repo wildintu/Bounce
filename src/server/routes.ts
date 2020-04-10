@@ -78,7 +78,7 @@ router.get('/session/:sessionid?/input', async (req, res) => {
 
 router.get('/session/:sessionid?/input/:inputid?', async (req, res) => {
     try {
-        let input = await DB.input.getOneInput(parseInt(req.params.id, 10));
+        let input = await DB.input.getOneInput(parseInt(req.params.inputid, 10));
         res.json(input);
     } catch(e) {
         console.log(e);
@@ -92,6 +92,21 @@ router.post('/session/:sessionid?/input', async (req, res) => {
     let secInput = req.body.secInput;
     try {
         let session = await DB.input.putToOrigId(origId, secName, secInput);
+        res.json(session);
+    } catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+})
+
+router.put('/session/:sessionid?/input/:inputid?', async (req, res) => {
+    let origId = parseInt(req.params.sessionid, 10);
+    let secName = req.body.secName;
+    let secInput = req.body.secInput;
+    let inputid = parseInt(req.params.inputid, 10);
+    console.log(inputid)
+    try {
+        let session = await DB.input.updateOneInput(origId, secName, secInput, inputid);
         res.json(session);
     } catch(e) {
         console.log(e);
