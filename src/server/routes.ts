@@ -91,8 +91,8 @@ router.post('/session/:sessionid?/input', async (req, res) => {
     let secName = req.body.secName;
     let secInput = req.body.secInput;
     try {
-        let session = await DB.input.putToOrigId(origId, secName, secInput);
-        res.json(session);
+        let input = await DB.input.putToOrigId(origId, secName, secInput);
+        res.json(input);
     } catch(e) {
         console.log(e);
         res.sendStatus(500);
@@ -104,10 +104,22 @@ router.put('/session/:sessionid?/input/:inputid?', async (req, res) => {
     let secName = req.body.secName;
     let secInput = req.body.secInput;
     let inputid = parseInt(req.params.inputid, 10);
+    console.log(origId)
     console.log(inputid)
     try {
-        let session = await DB.input.updateOneInput(origId, secName, secInput, inputid);
-        res.json(session);
+        let input = await DB.input.updateOneInput(origId, secName, secInput, inputid);
+        res.json(input);
+    } catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+})
+
+router.delete('/session/:sessionid?/input/:inputid?', async (req, res) => {
+    let inputid = parseInt(req.params.inputid, 10);
+    try {
+        let input = await DB.input.deleteInput(inputid);
+        res.json(input);
     } catch(e) {
         console.log(e);
         res.sendStatus(500);
