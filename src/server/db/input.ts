@@ -19,11 +19,11 @@ const putToOrigId = async (origId: number, secName: string, secInput: string) =>
 
 const updateOneInput = async (origId: number, secName: string, secInput: string, inputid: number) => {
     let values = [secName, secInput, origId, inputid];
-    return Query('UPDATE secondary SET secName=?, secInput=? WHERE origId = ? AND inputid=?', values)
+    return Query('UPDATE secondary SET secName=?, secInput=? WHERE origId = ? AND id=?', values)
 }
 
-// const deleteInput = async (id: number) =>
-// Query('DELETE FROM sessions WHERE id =?', [id])
+const deleteInput = async (inputid: number) =>
+Query('DELETE FROM secondary WHERE id =?', [inputid])
 
 export default {
     getAllInput,
@@ -31,5 +31,5 @@ export default {
     postOneInput,
     putToOrigId,
     updateOneInput,
-    // deleteInput
+    deleteInput
 }
