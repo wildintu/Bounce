@@ -2,11 +2,11 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 
 const Forum: React.FC<ForumProps> = () => {
 
-    const { id } = useParams();
+    // const { id } = useParams();
     // const history = useHistory();
 
     const [ name, setName ] = useState<string>('');
@@ -14,6 +14,22 @@ const Forum: React.FC<ForumProps> = () => {
 
     const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value); 
     const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value);
+
+    const submit = (e: React.MouseEvent<HTMLButtonElement>) => {
+        // e.preventDefault();
+        console.log("Its working?");
+    }
+    // CODE FROM THE CHIRPER TS LAB: might be useful?
+    // useEffect(() => {
+    //     (async () => {
+    //         let res = await fetch(`/api/chirps/${id}`);
+    //         let chirp = await res.json();
+    //         console.log(chirp);
+    //         //two code line is to preset the bar value.
+    //         setUsername(chirp.username);
+    //         setMessage(chirp.message);
+    //     })();
+    // }, [id])
 
     return (
         <main className="container my-5">
@@ -34,7 +50,11 @@ const Forum: React.FC<ForumProps> = () => {
                         name="text" 
                         id="text" 
                         rows={7} />
-                        <Link to ="/diagram"><Button className="float-right mt-2">Let Get Started?</Button></Link>
+                        <Link to ="/diagram">
+                            <Button 
+                            onClick={submit}
+                            className="float-right mt-2">Let Get Started?</Button>
+                        </Link>
                     </div>
                 </div>
             </section>
