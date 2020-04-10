@@ -12,7 +12,7 @@ import Bar from './Components/Subcomponents/Bar';
 
 const App: React.FC<AppProps> = () => {
 	return (
-		<div style={{background: '#0091ea'}}>
+		<div>
 		<BrowserRouter>
 			<Bar />
 			<Switch>
