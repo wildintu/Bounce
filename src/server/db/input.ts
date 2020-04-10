@@ -10,10 +10,6 @@ const getOneInput = async (inputid: number) => {
 const postOneInput = async (origId: number) => {
     let values = [origId];
     return Query('INSERT INTO secondary(origId) VALUES(?)', values);
-    // console.log([result])
-    // let insertId: any = Object.entries([result])[2][1];
-    // console.log(insertId);
-    // return Query('INSERT INTO secondary(origId) VALUES(?,?,?)', values)
 }
 
 const putToOrigId = async (origId: number, secName: string, secInput: string) => {
@@ -21,10 +17,10 @@ const putToOrigId = async (origId: number, secName: string, secInput: string) =>
     return Query('UPDATE secondary SET secName=?, secInput=? WHERE origId = ?', values)
 }
 
-// const updateOneInput = async (id: number, name: string, description: string, displaytype: any) => {
-//     let values = [name, description, displaytype, id];
-//     return Query('UPDATE sessions SET title= ?,content=? ,authorid=? WHERE id = ?', values);
-// }
+const updateOneInput = async (origId: number, secName: string, secInput: string, inputid: number) => {
+    let values = [secName, secInput, origId, inputid];
+    return Query('UPDATE secondary SET secName=?, secInput=? WHERE origId = ? AND inputid=?', values)
+}
 
 // const deleteInput = async (id: number) =>
 // Query('DELETE FROM sessions WHERE id =?', [id])
@@ -34,6 +30,6 @@ export default {
     getOneInput,
     postOneInput,
     putToOrigId,
-    // updateOneInput,
+    updateOneInput,
     // deleteInput
 }
