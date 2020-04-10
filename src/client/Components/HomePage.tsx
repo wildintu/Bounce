@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const HomePage: React.FC<HomeProps> = () => {
 
     return (
-        <div style={{background: '#0091ea'}}>
+        <div>
         <main className="container my-5 ">
             <section className="justify-content-center">
                 <div className="card shadow">
