@@ -3,8 +3,8 @@ import { Query } from './index';
 const getAllSession = async () => 
 Query('SELECT * from main');
 
-const getOneSession = async (id: number) => {
-    return Query('SELECT * FROM main WHERE id = ?', [id]);
+const getOneSession = async (sessionid: number) => {
+    return Query('SELECT * FROM main WHERE id = ?', [sessionid]);
 };
 
 const postOneSession = async (origUserName: string, origUserPost: string, ideaType: string) => {
@@ -12,18 +12,18 @@ const postOneSession = async (origUserName: string, origUserPost: string, ideaTy
     return Query('INSERT INTO main(origUserName, origUserPost, ideaType) VALUES(?,?,?)', values)
 }
 
-const updateOneSession = async (origUserName: string, origUserPost: string, ideaType: string, id: number) => {
-    let values = [origUserName, origUserPost, ideaType, id];
+const updateOneSession = async (origUserName: string, origUserPost: string, ideaType: string, sessionid: number) => {
+    let values = [origUserName, origUserPost, ideaType, sessionid];
     return Query('UPDATE main SET origUserName=?, origUserPost=? ,ideaType=? WHERE id = ?', values);
 }
 
-// const deleteSession = async (id: number) =>
-// Query('DELETE FROM session WHERE id =?', [id])
+const deleteSession = async (sessionid: number) =>
+Query('DELETE FROM main WHERE id =?', [sessionid])
 
 export default {
     getAllSession,
     getOneSession,
     postOneSession,
     updateOneSession,
-    // deleteSession
+    deleteSession
 }
