@@ -34,6 +34,7 @@
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0",
     "react-dom": "^16.13.1",
+    "react-mindmap": "^2.1.6",
     "react-router-dom": "^5.1.2",
     "sass-loader": "^7.3.1",
     "style-loader": "^0.23.1",
