@@ -19,8 +19,8 @@
 -- GRANT ALL PRIVILEGES
 -- ON bounce.*
 -- TO 'bounce'@'localhost';
-create database bounce;
-use bounce;
+-- create database bounce;
+-- use bounce;
 --
 -- Table structure for table `Secondary`
 --
@@ -34,6 +34,8 @@ CREATE TABLE `Secondary` (
   `secName` char(100) DEFAULT NULL,
   `secInput` text,
   `anonymous` tinyint(1) DEFAULT NULL,
+  `nodeNumber` char(100) NULL,
+  `edge` char(100) NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
@@ -48,7 +50,6 @@ CREATE TABLE `Secondary` (
 
 LOCK TABLES `Secondary` WRITE;
 /*!40000 ALTER TABLE `Secondary` DISABLE KEYS */;
-INSERT INTO `Secondary` VALUES (3,5,'Joe Exotic','Carol is a b$$$$$$',NULL,'2020-04-10 03:45:57'),(4,5,'Joe Exotic','Carol is a b$$$$$$',NULL,'2020-04-10 03:48:12'),(6,5,'Joe Exotic','Carol is a b$$$$$$',NULL,'2020-04-10 03:49:13'),(7,5,'Joe Exotic','Carol is a b$$$$$$',NULL,'2020-04-10 03:49:55'),(8,5,'Joe Exotic','Carol is a b$$$$$$',NULL,'2020-04-10 03:50:18'),(11,9,'Tiger','Someone feed me',NULL,'2020-04-10 04:15:15');
 /*!40000 ALTER TABLE `Secondary` ENABLE KEYS */;
 UNLOCK TABLES;
 
