@@ -59,6 +59,8 @@ CREATE TABLE `Secondary` (
   `secName` char(100) DEFAULT NULL,
   `secInput` text NOT NULL,
   `anonymous` tinyint(1) NOT NULL,
+  `nodeNumber` char(100) NOT NULL,
+  `edge` char(100) NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
