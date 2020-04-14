@@ -62,8 +62,8 @@ const PostMain: React.FC<IMain> = props => {
   );
 };
 
-interface IMain extends RouteComponentProps {
-
+export interface IMain extends RouteComponentProps {
+  props?: any
 }
 
 export default PostMain;

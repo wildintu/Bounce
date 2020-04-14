@@ -1,5 +1,6 @@
 import * as express from 'express';
 import DB from './db';
+import db from './db';
 
 const router = express.Router();
 
@@ -33,7 +34,7 @@ router.post('/session', async (req, res) => {
     let ideaType = req.body.ideaType;
     try { 
         let session: any = await DB.session.postOneSession(origUserName, origUserPost, ideaType);
-        let origId: any = await DB.input.postOneInput(session.insertId)
+        // let origId: any = await DB.input.postOneInput(session.insertId)
         res.json(session);
     } catch(e) {
         console.log(e);
@@ -67,12 +68,23 @@ router.delete('/session/:sessionid?', async (req, res) => {
 })
 
 router.get('/session/:sessionid?/input', async (req, res) => {
-    try {
-        let input = await DB.input.getAllInput();
-        res.json(input);
-    } catch(e) {
-        console.log(e);
-        res.sendStatus(500);
+    let sessionid = parseInt(req.params.sessionid, 10);
+    if (sessionid) {
+        try {
+            res.json(await DB.input.getInputBySession(sessionid))
+        } catch (error) {
+            console.log(error);
+            res.status(500).json('ERROR!!!!');
+        }
+    } else {
+
+        try {
+            let input = await DB.input.getAllInput();
+            res.json(input);
+        } catch(e) {
+            console.log(e);
+            res.sendStatus(500);
+        }
     }
 })
 
@@ -86,8 +98,11 @@ router.get('/session/:sessionid?/input/:inputid?', async (req, res) => {
     }
 })
 
+router.get('/')
+
 router.post('/session/:sessionid?/input', async (req, res) => {
-    let origId = parseInt(req.params.sessionid, 10);
+    // let origId = parseInt(req.params.sessionid, 10);
+    let origId = parseInt(req.body.origId, 10)
     let secName = req.body.secName;
     let secInput = req.body.secInput;
     try {

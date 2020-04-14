@@ -10,6 +10,7 @@ import Diagram from './Components/diagram';
 import Bar from './Components/Subcomponents/Bar';
 import Collaboration from './Components/Collaboration';
 import PostMain from './Components/PostMain';
+import PostInput from './Components/PostInput';
 
 const App: React.FC<AppProps> = props => {
 	return (
@@ -22,8 +23,9 @@ const App: React.FC<AppProps> = props => {
 				<Route exact path ="/groupproject" component = { GroupProject } />
 				<Route exact path ="/idea" component = { Idea } />
 				<Route exact path="/diagram" component = { Diagram } />
-				<Route exact path="/collaboration/:id" component = { Collaboration } />
+				<Route exact path="/collaboration/:sessionid" component = { Collaboration } />
 				<Route exact path="/post" component = { PostMain } />
+				<Route exact path="/collaboration/:sessionid/input" component = { PostInput } />
 				<Route path="/" component = { HomePage } />
 			</Switch>
 		</Router>
