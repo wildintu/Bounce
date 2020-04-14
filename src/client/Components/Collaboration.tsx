@@ -1,24 +1,70 @@
-import * as React from 'react';
+import React from "react";
+import Graph from "react-graph-vis";
 
-const Collaboration: React.FC<CollabProps> = () => {
-
-    return (
-        <main className="container my-5">
-            <section className="justify-content-center">
-                <div className="card shadow">
-                    <div className="card-body text-center">
-                        <h1 className="text-primary text-center">Group Project Ideas</h1>
-                        <p className="text-primary">gonna figure out how to make this inset webb of ideas</p>
-                       
-                    </div>
-                </div>
-            </section>
-        </main>
-    );
-
-
+const options = {
+  layout: {
+    hierarchical: false
+  },
+  edges: {
+    color: "#000000"
+  },
+  nodes: {
+    physics: false,
+    shape: "box",
+    shadow: true,
+  }
 };
 
-interface CollabProps { };
+const events = {
+  select: function (event: any) {
+    var { nodes, edges } = event;
+    console.log("Selected nodes:");
+    console.log(nodes);
+    console.log("Selected edges:");
+    console.log(edges);
+  }
+};
 
-export default Collaboration;
+export default class App extends React.Component<Something, any> {
+  constructor(props: any) {
+    super(props);
+
+    this.state = {
+      graph: {
+        nodes: [
+          { id: 1, label: "Main Idea", color: "#e04141" },
+          { id: 2, label: "Node 2", color: "#e09c41" },
+          { id: 3, label: "Node 3", color: "#e0df41" },
+          { id: 4, label: "Node 4", color: "#7be041" },
+          { id: 5, label: "Node 5", color: "#41e0c9" },
+        ],
+        edges: [{ from: 1, to: 2 }, { from: 1, to: 3 }, { from: 2, to: 4 }, { from: 2, to: 5 }]
+      }
+    }
+  }
+  
+  addNode() {
+
+  }
+
+  render() {
+    return (
+      <main className="container my-5">
+        <section className="justify-content-center">
+          <div className="card shadow">
+            <div className="card-body text-center">
+              <Graph graph={this.state.graph} 
+              options={options} 
+              events={events} 
+              style={{ height: "650px", background: "mintcream", border: "lightcyan solid " }} />
+            </div>
+          </div>
+        </section>
+      </main>
+    );
+  }
+}
+
+interface Something {
+  graph: any;
+}

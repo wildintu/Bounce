@@ -6,9 +6,11 @@ import ClassRoom from './Components/ClassRoom';
 import Business from './Components/Business';
 import GroupProject from './Components/GroupProject';
 import Idea from './Components/Idea';
-import Forum from './Components/Forum';
+import Form from './Components/Forum';
 import Diagram from './Components/diagram';
 import Bar from './Components/Subcomponents/Bar';
+import Collaboration from './Components/Collaboration'; 
+
 
 const App: React.FC<AppProps> = () => {
 	return (
@@ -21,8 +23,9 @@ const App: React.FC<AppProps> = () => {
 				<Route exact path ="/business" component = { Business } />
 				<Route exact path ="/groupproject" component = { GroupProject } />
 				<Route exact path ="/idea" component = { Idea } />
-				<Route exact path="/forum" component = { Forum } />
+				<Route exact path="/form" component = { Form } />
 				<Route exact path="/diagram" component = { Diagram } />
+				<Route exact path="/collaboration" component = { Collaboration} />
 			</Switch>
 		</BrowserRouter>
 		</div>

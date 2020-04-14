@@ -36,7 +36,7 @@ const Forum: React.FC<ForumProps> = () => {
             <section className="justify-content-center">
                 <div className="card shadow">
                     <div className="card-body">
-                        <h1 className="text-primary">Forum Setup</h1>
+                        <h1 className="text-primary">Form Setup</h1>
                         <h5 className="card-title text-primary">Name of Survey</h5>
                         <input value={name} 
                         onChange={handleNameChange} 
