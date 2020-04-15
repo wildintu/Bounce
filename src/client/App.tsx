@@ -11,6 +11,7 @@ import Bar from './Components/Subcomponents/Bar';
 import Collaboration from './Components/Collaboration';
 import PostMain from './Components/PostMain';
 import PostInput from './Components/PostInput';
+import TerInput from './Components/TerInput';
 
 const App: React.FC<AppProps> = props => {
 	return (
@@ -26,6 +27,7 @@ const App: React.FC<AppProps> = props => {
 				<Route exact path="/collaboration/:sessionid" component = { Collaboration } />
 				<Route exact path="/post" component = { PostMain } />
 				<Route exact path="/collaboration/:sessionid/input" component = { PostInput } />
+				<Route exact path="/collaboration/:sessionid/input/:inputid" component = { TerInput } />
 				<Route path="/" component = { HomePage } />
 			</Switch>
 		</Router>

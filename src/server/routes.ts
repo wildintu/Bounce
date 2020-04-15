@@ -1,6 +1,5 @@
 import * as express from 'express';
 import DB from './db';
-import db from './db';
 
 const router = express.Router();
 
@@ -98,8 +97,6 @@ router.get('/session/:sessionid?/input/:inputid?', async (req, res) => {
     }
 })
 
-router.get('/')
-
 router.post('/session/:sessionid?/input', async (req, res) => {
     // let origId = parseInt(req.params.sessionid, 10);
     let origId = parseInt(req.body.origId, 10)
@@ -135,6 +132,31 @@ router.delete('/session/:sessionid?/input/:inputid?', async (req, res) => {
     try {
         let input = await DB.input.deleteInput(inputid);
         res.json(input);
+    } catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+})
+
+router.get('/session/:sessionid/input/:inputid/branch', async (req, res) => {
+    let origid = parseInt(req.params.sessionid, 10);
+    let nodeid = parseInt(req.params.inputid, 10);
+    try {
+        res.json(await DB.branch.getBranch(origid, nodeid)); 
+    } catch (e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+})
+
+router.post('/session/:sessionid/input/:inputid/branch', async (req, res) => {
+    let origid = parseInt(req.params.sessionid, 10);
+    let nodeid = parseInt(req.params.inputid, 10);
+    let tername = req.body.tername;
+    let terinput = req.body.terinput;
+    try {
+        let branch = await DB.branch.postBranch(origid, nodeid, tername, terinput);
+        res.json(branch);
     } catch(e) {
         console.log(e);
         res.sendStatus(500);

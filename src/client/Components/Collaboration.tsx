@@ -10,6 +10,11 @@ const options = {
   },
   edges: {
     color: "#000000"
+  },
+  nodes: {
+    physics: false,
+    shape: "box",
+    shadow: true
   }
 };
 
@@ -97,8 +102,8 @@ export default class Collaboration extends React.Component<any,any> {
             <Button as={Link} to={`/`}
           className="btn btn-primary ml-3"
           >Go Back</Button>  
-            <Card className="my-5 mx-auto" style={{"maxWidth": "800px"}}>
-                <Graph graph={this.state.graph} options={options} events={events} style={{ height: "640px" }} />
+            <Card className="my-5 mx-auto" style={{"maxWidth": "800px", "opacity": "0.8"}}>
+                <Graph className="shadow" graph={this.state.graph} options={options} events={events} style={{ height: "640px" }} />
             </Card>
           </Container>
 
