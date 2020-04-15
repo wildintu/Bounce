@@ -12,7 +12,18 @@ const options = {
     physics: false,
     shape: "box",
     shadow: true,
+  },
+  manipulation: {
+    enabled: true,
+    // addNode: function(nodeData, callback) {
+    //    nodeData.label ="Hello World";
+    //    callback(nodeData)
+    // }
   }
+  
+  // en: {
+  //   addNode: "Add Node"
+  // }
 };
 
 const events = {
@@ -38,13 +49,17 @@ export default class App extends React.Component<Something, any> {
           { id: 4, label: "Node 4", color: "#7be041" },
           { id: 5, label: "Node 5", color: "#41e0c9" },
         ],
-        edges: [{ from: 1, to: 2 }, { from: 1, to: 3 }, { from: 2, to: 4 }, { from: 2, to: 5 }]
-      }
+        edges: [{ from: 1, to: 2 }, { from: 1, to: 3 }, { from: 2, to: 4 }, { from: 2, to: 5 }],
+        // event: {
+
+        // }
+      },
     }
   }
   
   addNode() {
-
+    console.log("testing 1, 2, 3");
+    
   }
 
   render() {
@@ -53,6 +68,7 @@ export default class App extends React.Component<Something, any> {
         <section className="justify-content-center">
           <div className="card shadow">
             <div className="card-body text-center">
+              <button className="mb-3" onClick={this.addNode}>Add Node</button>
               <Graph graph={this.state.graph} 
               options={options} 
               events={events} 
