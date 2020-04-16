@@ -87,7 +87,7 @@ router.get('/session/:sessionid?/input', async (req, res) => {
     }
 })
 
-router.get('/session/:sessionid?/input/:inputid?', async (req, res) => {
+router.get('/session/:sessionid/input/:inputid', async (req, res) => {
     try {
         let input = await DB.input.getOneInput(parseInt(req.params.inputid, 10));
         res.json(input);
@@ -138,24 +138,34 @@ router.delete('/session/:sessionid?/input/:inputid?', async (req, res) => {
     }
 })
 
-router.get('/session/:sessionid/input/:inputid/branch', async (req, res) => {
-    let origid = parseInt(req.params.sessionid, 10);
-    let nodeid = parseInt(req.params.inputid, 10);
-    try {
-        res.json(await DB.branch.getBranch(origid, nodeid)); 
-    } catch (e) {
-        console.log(e);
-        res.sendStatus(500);
+router.get('/session/:sessionid/branch/:branchid?', async (req, res) => {
+    let branchid = parseInt(req.params.branchid, 10);
+    if(branchid){
+        try {
+            res.json((await DB.branch.getBranchInput(branchid))[0]);
+        } catch (e) {
+            console.log(e);
+            res.sendStatus(500);
+        }
+    } else {
+        let origid = parseInt(req.params.sessionid, 10);
+        try {
+            res.json(await DB.branch.getBranch(origid)); 
+        } catch (e) {
+            console.log(e);
+            res.sendStatus(500);
+        }
     }
 })
 
 router.post('/session/:sessionid/input/:inputid/branch', async (req, res) => {
+    let branchid = parseInt(req.body.branchid, 10);
     let origid = parseInt(req.params.sessionid, 10);
     let nodeid = parseInt(req.params.inputid, 10);
     let tername = req.body.tername;
     let terinput = req.body.terinput;
     try {
-        let branch = await DB.branch.postBranch(origid, nodeid, tername, terinput);
+        let branch = await DB.branch.postBranch(branchid, origid, nodeid, tername, terinput);
         res.json(branch);
     } catch(e) {
         console.log(e);

@@ -1,5 +1,4 @@
 let Fetch = async (session: object, url: string, methodtype: string) => {
-    console.log(session);
     try {
       let response = await fetch(url, {
         method: methodtype,
