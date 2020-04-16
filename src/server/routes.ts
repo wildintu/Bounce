@@ -33,7 +33,9 @@ router.post('/session', async (req, res) => {
     let ideaType = req.body.ideaType;
     try { 
         let session: any = await DB.session.postOneSession(origUserName, origUserPost, ideaType);
-        // let origId: any = await DB.input.postOneInput(session.insertId)
+        console.log(session);
+        let origId: any = await DB.input.postOneInput(session.insertId, origUserName, origUserPost, 1);
+        let nodeId: any = await DB.input.updateNodeId(origId.insertId, origId.insertId)
         res.json(session);
     } catch(e) {
         console.log(e);
@@ -99,11 +101,13 @@ router.get('/session/:sessionid/input/:inputid', async (req, res) => {
 
 router.post('/session/:sessionid?/input', async (req, res) => {
     // let origId = parseInt(req.params.sessionid, 10);
-    let origId = parseInt(req.body.origId, 10)
+    let origId = parseInt(req.params.sessionid, 10)
     let secName = req.body.secName;
     let secInput = req.body.secInput;
+    let nodeId = parseInt(req.body.nodeId, 10);
+    let level = parseInt(req.body.level, 10);
     try {
-        let input = await DB.input.putToOrigId(origId, secName, secInput);
+        let input = await DB.input.putToOrigId(origId, secName, secInput, nodeId, level);
         res.json(input);
     } catch(e) {
         console.log(e);
@@ -129,8 +133,9 @@ router.put('/session/:sessionid?/input/:inputid?', async (req, res) => {
 
 router.delete('/session/:sessionid?/input/:inputid?', async (req, res) => {
     let inputid = parseInt(req.params.inputid, 10);
+    let origId = parseInt(req.params.sessionid, 10);
     try {
-        let input = await DB.input.deleteInput(inputid);
+        let input = await DB.input.deleteInput(inputid, origId);
         res.json(input);
     } catch(e) {
         console.log(e);
@@ -138,19 +143,18 @@ router.delete('/session/:sessionid?/input/:inputid?', async (req, res) => {
     }
 })
 
-router.get('/session/:sessionid/branch/:branchid?', async (req, res) => {
-    let branchid = parseInt(req.params.branchid, 10);
-    if(branchid){
+router.get('/colors/:colorid?', async (req, res) => {
+    let colorid = parseInt(req.params.colorid, 10);
+    if (colorid) {
         try {
-            res.json((await DB.branch.getBranchInput(branchid))[0]);
+            res.json((await DB.colors.getOneColor(colorid))[0])
         } catch (e) {
             console.log(e);
             res.sendStatus(500);
         }
     } else {
-        let origid = parseInt(req.params.sessionid, 10);
         try {
-            res.json(await DB.branch.getBranch(origid)); 
+            res.json(await DB.colors.getColors())
         } catch (e) {
             console.log(e);
             res.sendStatus(500);
@@ -158,16 +162,10 @@ router.get('/session/:sessionid/branch/:branchid?', async (req, res) => {
     }
 })
 
-router.post('/session/:sessionid/input/:inputid/branch', async (req, res) => {
-    let branchid = parseInt(req.body.branchid, 10);
-    let origid = parseInt(req.params.sessionid, 10);
-    let nodeid = parseInt(req.params.inputid, 10);
-    let tername = req.body.tername;
-    let terinput = req.body.terinput;
+router.post('/colors', async (req, res) => {
     try {
-        let branch = await DB.branch.postBranch(branchid, origid, nodeid, tername, terinput);
-        res.json(branch);
-    } catch(e) {
+        res.json(await DB.colors.postColors(req.body.color))
+    } catch (e) {
         console.log(e);
         res.sendStatus(500);
     }

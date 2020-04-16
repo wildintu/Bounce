@@ -77,57 +77,35 @@ export default class Collaboration extends React.Component<any,any> {
 
   async componentDidMount() {
     try {
-      let r: Response = await fetch(`/api/session/${this.props.match.params.sessionid}`);
+      let r: Response = await fetch('/api/colors');
       let json: any = await r.json();
       let r2: Response = await fetch(`/api/session/${this.props.match.params.sessionid}/input`);
       let json2: any = await r2.json();
-      let r3: Response = await fetch(`/api/session/${this.props.match.params.sessionid}/branch`);
-      let json3: any = await r3.json();
-      // console.log(json3)
+      // console.log(json)
 
       let secInput = json2.map((element: any) => {
+        console.log(element.level)
         return ({
           id: element.id,
           label: (`${element.secName}: ${element.secInput}`),
-          color: '#e09c41'
+          color: json[element.level-1].color
         })
       })
 
-      let [lastid] = secInput.slice(-1);
+
+      let arrows = json2.map((element: any) => {
+        return({
+          from: element.nodeId,
+          to: element.id,
+        })
+      })
       
-      console.log(json3)
-      let terInput = json3.map((element: any) => {
-        return ({
-          id: element.id + lastid.id,
-          label: (`${element.tername}: ${element.terinput}`),
-          color: '#00ffff'
-        })
-      })
-
-      let bubbles: any = [{ id: 1, label: json.origUserPost, color: "#e04141" },...secInput]
-
-      let arrows: any = bubbles.map((element: any,index: any) => {
-        if(index+1 < bubbles.length) {
-          return ({
-            from: bubbles[0].id,
-            to: bubbles[index+1].id
-          })
-
-        }
-      })
-      arrows.splice(-1,1);
-
-      let arrows2: any = json3.map((element: any) => {
-        return ({
-          from: element.nodeid,
-          to: element.id + lastid.id
-        })
-      })
+      arrows.shift()
 
       this.setState({
         graph: {
-          nodes: [...bubbles, ...terInput],
-          edges: [...arrows, ...arrows2]
+          nodes: [...secInput],
+          edges: [...arrows]
         }
       })
     } catch(e) {
@@ -138,9 +116,9 @@ export default class Collaboration extends React.Component<any,any> {
   render() {
     return (
           <Container style={{'marginTop': '40px'}}>
-            <Button as={Link} to={`/collaboration/${this.props.match.params.sessionid}/input`}
+            {/* <Button as={Link} to={`/collaboration/${this.props.match.params.sessionid}/input`}
           className="btn btn-primary ml-3"
-          >Give Input</Button>  
+          >Give Input</Button>   */}
             <Button as={Link} to={`/`}
           className="btn btn-primary ml-3"
           >Go Back</Button>  
