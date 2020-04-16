@@ -2,10 +2,10 @@ import * as React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './scss/app';
 import HomePage from './Components/HomePage';
-import ClassRoom from './Components/ClassRoom';
-import Business from './Components/Business';
-import GroupProject from './Components/GroupProject';
-import Idea from './Components/Idea';
+// import ClassRoom from './Components/ClassRoom';
+// import Business from './Components/Business';
+// import GroupProject from './Components/GroupProject';
+// import Idea from './Components/Idea';
 import Forum from './Components/Forum';
 import Diagram from './Components/diagram';
 import Bar from './Components/Subcomponents/Bar';
@@ -17,10 +17,10 @@ const App: React.FC<AppProps> = () => {
 			<Bar />
 			<Switch>
 				<Route exact path="/" component = { HomePage } />
-				<Route exact path ="/classroom" component = { ClassRoom } />
-				<Route exact path ="/business" component = { Business } />
-				<Route exact path ="/groupproject" component = { GroupProject } />
-				<Route exact path ="/idea" component = { Idea } />
+				{/* <Route exact path ="/classroom" component = { ClassRoom } /> */}
+				{/* <Route exact path ="/business" component = { Business } /> */}
+				{/* <Route exact path ="/groupproject" component = { GroupProject } /> */}
+				{/* <Route exact path ="/idea" component = { Idea } /> */}
 				<Route exact path="/forum" component = { Forum } />
 				<Route exact path="/diagram" component = { Diagram } />
 			</Switch>
