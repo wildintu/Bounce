@@ -136,6 +136,7 @@ router.delete('/session/:sessionid?/input/:inputid?', async (req, res) => {
     let origId = parseInt(req.params.sessionid, 10);
     try {
         let input = await DB.input.deleteInput(inputid, origId);
+        let otherInput = await DB.input.deleteOtherInput(inputid, origId);
         res.json(input);
     } catch(e) {
         console.log(e);

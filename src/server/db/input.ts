@@ -39,6 +39,9 @@ const updateOneInput = async (origId: number, secName: string, secInput: string,
 const deleteInput = async (inputid: number, origId: number) =>
 Query('DELETE FROM secondary WHERE id =? AND origId=?', [inputid, origId])
 
+const deleteOtherInput = async (nodeId: number, origId: number) =>
+    Query('DELETE FROM secondary WHERE nodeId = ? AND origId = ?', [nodeId, origId]);
+
 export default {
     getAllInput,
     getOneInput,
@@ -47,5 +50,6 @@ export default {
     updateNodeId,
     putToOrigId,
     updateOneInput,
-    deleteInput
+    deleteInput,
+    deleteOtherInput
 }
