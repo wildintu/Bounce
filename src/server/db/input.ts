@@ -11,9 +11,18 @@ const getInputBySession = async (origId: number) => {
     return Query('SELECT * FROM secondary WHERE origId = ?', [origId]);
 }
 
+const filterInput = async (origId: number, inputid: number) => {
+    return Query('SELECT id, level FROM secondary WHERE origId=? AND id=?',[origId, inputid]);
+}
+
+const filterLevel = async (origId: number, nodeId: number, level: number) => {
+    let values = [origId, nodeId, level];
+    return Query('SELECT * FROM secondary WHERE origId=? AND nodeId=? AND level=?', values);
+}
+
 const postOneInput = async (origId: number, secName: string, secInput: string, level: number) => {
     let values = [origId, secName, secInput, level];
-    return Query('INSERT INTO secondary(origId, secName, secInput, level) VALUES(?,?,?,?)', values)
+    return Query('INSERT INTO secondary(origId, secName, secInput, level) VALUES(?,?,?,?)', values);
 }
 
 const updateNodeId = async (nodeId: number, id: number) => {
@@ -46,6 +55,8 @@ export default {
     getAllInput,
     getOneInput,
     getInputBySession,
+    filterInput,
+    filterLevel,
     postOneInput,
     updateNodeId,
     putToOrigId,

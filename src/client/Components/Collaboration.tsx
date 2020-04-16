@@ -57,6 +57,10 @@ export default class Collaboration extends React.Component<any,any> {
           props.history.push(`/collaboration/${this.props.match.params.sessionid}/input/${nodes}`);
           // console.log(this.props.match.params.sessionid)
       
+        },
+        mouseOver: (event: any) => {
+          var { nodes, edges } = event;
+          console.log('oh')
         }
       },
       graph: {
@@ -84,7 +88,7 @@ export default class Collaboration extends React.Component<any,any> {
       // console.log(json)
 
       let secInput = json2.map((element: any) => {
-        console.log(element.level)
+        // console.log(element.level)
         return ({
           id: element.id,
           label: (`${element.secName}: ${element.secInput}`),
