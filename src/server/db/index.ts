@@ -3,6 +3,7 @@ import config from '../config';
 
 import session from './session';
 import input from './input';
+import colors from './colors';
 
 
 export const Connection = mysql.createConnection(config.mysql);
@@ -22,5 +23,6 @@ export const Query = (query: string, values?: Array<string | number>) => {
 
 export default {
     session,
-    input
+    input,
+    colors
 };
