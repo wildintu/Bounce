@@ -2,7 +2,8 @@ import * as express from 'express';
 import * as path from 'path';
 import * as morgan from 'morgan';
 
-import apiRouter from './routes';
+// import apiRouter from './routes';
+import mainRouter from './Routes';
 
 const app = express();
 app.use(express.json());
@@ -11,7 +12,8 @@ app.use(express.json());
 app.use(express.static('public'));
 
 app.use(morgan('dev'));
-app.use('/api', apiRouter);
+// app.use('/api', apiRouter);
+app.use(mainRouter);
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../public', 'index.html'))
 });
