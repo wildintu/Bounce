@@ -133,30 +133,7 @@ router.delete('/:sessionid?/input/:inputid?', async (req, res) => {
     let origId = parseInt(req.params.sessionid, 10);
     let i = 0;
     try {
-        let [start] = await DB.input.filterInput(origId,inputid);
-        // let [start]: any = await DB.input.filterLevel(origId, inputid, 1);
-        let count: number = parseInt(start.level, 10)+1;
-        let nodeid: any = parseInt(start.id, 10);
-        let input = await DB.input.deleteInput(inputid, origId);
         
-        while(i !== 1) {
-            let search: any = await DB.input.filterLevel(origId, nodeid, count);
-            // console.log(search)
-            if (search.length !== 0) {
-                search.forEach(async (element: any) => {
-                    nodeid = parseInt(element.id, 10);
-                    count = parseInt(element.level, 10)+1;
-                    let cullNodes = await DB.input.deleteInput(nodeid, origId);
-                    // console.log(element)
-                })
-            } else {
-                i = 1           
-            }
-        }
-        // filter.forEach(async (element: any) => {
-        //     // let cullNodes = await DB.input.deleteOtherInput(element.id, origId)
-        // })
-        // res.json(input);
         res.sendStatus(200)
     } catch(e) {
         console.log(e);
