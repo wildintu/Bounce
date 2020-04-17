@@ -64,14 +64,6 @@ export default class Collaboration extends React.Component<any, any> {
         }
       },
       graph: {
-        // nodes: [
-        //   { id: 1, label: "Main Idea", color: "#e04141" },
-        //   { id: 2, label: "Secondary Input", color: "#e09c41" },
-        //   { id: 3, label: "Secondary Input", color: "#e0df41" },
-        //   { id: 4, label: "Secondary Input", color: "#7be041" },
-        //   { id: 5, label: "Secondary Input", color: "#41e0c9" }
-        // ],
-        // edges: [{ from: 1, to: 2 }, { from: 1, to: 3 }, { from: 2, to: 4 }, { from: 2, to: 5 }]
         nodes: [],
         edges: [],
       },
@@ -91,9 +83,6 @@ export default class Collaboration extends React.Component<any, any> {
       }
     }
   }
-
-
-
 
   async componentDidMount() {
     try {
@@ -147,12 +136,12 @@ export default class Collaboration extends React.Component<any, any> {
               // shakeTowards: 'roots'  // roots, leaves
             },
           },
-          configure: {
-            enabled: true,
-            filter: 'nodes,edges',
+          // configure: {
+          //   enabled: true,
+          //   filter: 'nodes,edges',
             
-            showButton: true
-          },
+          //   showButton: true
+          // },
           edges: {
             color: "#000000",
             
