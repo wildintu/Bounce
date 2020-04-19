@@ -158,7 +158,7 @@ export default class Collaboration extends React.Component<any, any> {
             Share Link
           </Button>
 
-          <Modal show={this.state.show} onHide={this.handleClose} animation={false}>
+          <Modal show={this.state.show} onHide={this.handleClose} animation={true}>
             <Modal.Header closeButton>
               <Modal.Title>Modal heading</Modal.Title>
             </Modal.Header>
