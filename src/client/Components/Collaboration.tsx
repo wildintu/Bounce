@@ -1,7 +1,8 @@
 import React from "react";
 import Graph from "react-graph-vis";
-import { Card, Container, Button } from "react-bootstrap";
+import { Card, Container, Button, Modal, ModalDialog } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const months: string[] = ["January", "February", "March", "April", "May",
   "June", "July", "August", "September", "October", "November", "December"]
@@ -19,8 +20,21 @@ export default class Collaboration extends React.Component<any, any> {
       },
       options: {},
       alertMsg: null,
+      show: false,
     }
-  }
+  };
+
+  handleClose = () => {
+    this.setState({
+      show: false
+    })
+  };
+
+  handleShow = () => {
+    this.setState({
+      show: true,
+    })
+  };
 
   async componentDidMount() {
     try {
@@ -83,6 +97,7 @@ export default class Collaboration extends React.Component<any, any> {
           },
           autoResize: true,
         },
+
         events: {
           click: (event: any) => {
             var { nodes, edges } = event;
@@ -91,6 +106,7 @@ export default class Collaboration extends React.Component<any, any> {
             var { nodes, edges } = event;
             this.props.history.push(`/collaboration/${this.props.match.params.sessionid}/input/${nodes}`);
           },
+
           selectNode: async (event: any) => {
             var { nodes, edges, pointer } = event;
             let position = pointer.DOM;
@@ -111,13 +127,14 @@ export default class Collaboration extends React.Component<any, any> {
                 </Card>
               )
             })
-            
+
           },
           deselectNode: (event: any) => {
             this.setState({
               alertMsg: (<div></div>)
             })
-          }
+          },
+
         },
       })
     } catch (e) {
@@ -132,6 +149,32 @@ export default class Collaboration extends React.Component<any, any> {
           <Button as={Link} to={`/`}
             className="btn btn-primary ml-3 my-auto"
           >Go Back</Button>
+
+          <Button
+            onClick={this.handleShow}
+            style={{ 'marginLeft': '40px' }}
+            className="btn btn-primary"
+          >
+            Share Link
+          </Button>
+
+          <Modal show={this.state.show} onHide={this.handleClose} animation={false}>
+            <Modal.Header closeButton>
+              <Modal.Title>Modal heading</Modal.Title>
+            </Modal.Header>
+            <Modal.Body> {`http://localhost:3000/collaboration/${this.props.match.params.sessionid}`} </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={this.handleClose}>
+                Close
+          </Button>
+              <CopyToClipboard text={`http://localhost:3000/collaboration/${this.props.match.params.sessionid}`}>
+                <Button variant="primary" onClick={this.handleClose}>
+                  Copy Link
+          </Button>
+              </CopyToClipboard>
+            </Modal.Footer>
+          </Modal>
+
           <Card className="my-5 mx-auto" style={{ "maxWidth": "1000px", "maxHeight": "700px", "opacity": "0.8" }}>
             <div>
               {this.state.alertMsg}
