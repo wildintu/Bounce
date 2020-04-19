@@ -63,7 +63,7 @@ export default class Collaboration extends React.Component<any, any> {
             hierarchical: {
               enabled: true,
               levelSeparation: 100,
-              nodeSpacing: 300,
+              nodeSpacing: 500,
               treeSpacing: 0,
               blockShifting: true,
               edgeMinimization: true,
