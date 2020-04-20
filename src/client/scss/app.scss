@@ -3,4 +3,5 @@ $theme-colors: (
     // 'background': #0091ea
 );
 
+@import "../scss/Fade.scss";
 @import '../../../node_modules/bootstrap/scss/bootstrap.scss';
