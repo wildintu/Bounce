@@ -1,7 +1,8 @@
-$theme-colors: (
-    'primary': #0091ea,//Covalence Blue!  :D
-    // 'background': #0091ea
-);
-
 @import "../scss/Fade.scss";
-@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+$theme-colors: (
+    "primary": #0091ea,
+    //Covalence Blue!  :D
+        // 'background': #0091ea,
+);
