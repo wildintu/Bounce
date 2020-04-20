@@ -6,11 +6,13 @@ const HomePage: React.FC = () => {
   return (
     <React.Fragment>
       <main>
-        <Container fluid="md" className="main-container">
+        <Container fluid className="main-container d-flex align-items-center justify-content-center" style={{ height: "100%" }}>
           <Row>
             <Col>
-              <Card style={{ fontFamily: 'Catamaran', boxShadow: "-0.2em 0.2em 0.4em #9E9E9E", height: "30vh", width: "18vw" }}>
+              <Card className="d-flex align-items-center justify-content-around mb-5 mr-5" style={{ fontFamily: 'Catamaran', boxShadow: "-0.2em 0.2em 0.4em #9E9E9E", height: "40vh", width: "30vw" }}>
+                <h1 className="mb-5">Welcome to Bounce</h1>
                 <FadeInComp />
+                <Button size="sm" style={{ fontSize: "0.7em" }}>Let's get started</Button>
               </Card>
             </Col>
           </Row>
