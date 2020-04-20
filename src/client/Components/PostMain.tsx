@@ -26,8 +26,11 @@ const PostMain: React.FC<IMain> = props => {
 
   return (
     <Container>
+      <h3 className="form-group col-lg-8 mt-3">
+        Start a Brainstorm Session Now!
+      </h3>
     <Form>
-    <Form.Group className="form-group col-lg-4">
+    <Form.Group className="form-group col-lg-5">
         <Form.Label>Name</Form.Label>
         <Form.Control
           type="text"

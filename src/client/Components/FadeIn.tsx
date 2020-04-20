@@ -6,7 +6,7 @@ const FadeInComp: React.FC<AppProps> = () => {
         {
             id: 0,
             title:
-                "Artists and creatives can use it to collaborate, literally watching their ideas grow as they expand on concepts together"
+                "Artists and creatives can use it to collaborate and watch their ideas grow as they expand on concepts together"
         },
         {
             id: 1,
@@ -48,7 +48,7 @@ const FadeInComp: React.FC<AppProps> = () => {
         <>
             {fadingTextPropsTransition.map(({ item, props, key }) => (
                 <animated.div key={key} style={{ ...props, position: "absolute", zIndex: 2 }}>
-                <h1 style={{ fontSize: "0.85em" }}>{item.title}</h1>
+                <h1 className="m-4 text-center" style={{ fontSize: "0.85em" }}>{item.title}</h1>
                 </animated.div>
             ))}
         </>

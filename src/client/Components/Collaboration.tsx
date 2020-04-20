@@ -145,15 +145,15 @@ export default class Collaboration extends React.Component<any, any> {
   render() {
     return (
       <React.Fragment>
-        <Container style={{ 'marginTop': '40px' }}>
+        <Container className="my-5 mx-auto col-lg-8" style={{ 'marginTop': '40px' }}>
           <Button as={Link} to={`/`}
-            className="btn btn-primary ml-3 my-auto"
+            className="btn btn-primary my-auto my-5 mx-auto"
           >Go Back</Button>
 
           <Button
             onClick={this.handleShow}
             style={{ 'marginLeft': '40px' }}
-            className="btn btn-primary"
+            className="btn btn-primary my-auto"
           >
             Invite
           </Button>
