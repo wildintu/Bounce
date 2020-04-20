@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { RouteComponentProps } from "react-router";
 import Fetch from "./Fetch";
-import { Container, Form, Button } from "react-bootstrap";
+import { Container, Form, Button, Card } from "react-bootstrap";
 
 const PostMain: React.FC<IMain> = props => {
   const [name, setName] = useState<string>("");
@@ -25,12 +25,13 @@ const PostMain: React.FC<IMain> = props => {
   };
 
   return (
-    <Container>
-      <h3 className="form-group col-lg-8 mt-3">
-        Start a Brainstorm Session Now!
+    <Container fluid className="mb-3">
+      <Card className="col-lg-5 mt-4 mx-auto" style={{ "opacity": "0.8" }}>
+      <h3 className="form-group mt-3 mx-auto text-center">
+        Start a Brainstorm Session!
       </h3>
-    <Form>
-    <Form.Group className="form-group col-lg-5">
+    <Form className="mt-3">
+    <Form.Group className="form-group mx-auto my-auto" style={{  }}>
         <Form.Label>Name</Form.Label>
         <Form.Control
           type="text"
@@ -54,13 +55,16 @@ const PostMain: React.FC<IMain> = props => {
         />
         </Form.Group>
         </Form>
-        <Button className="btn btn-primary ml-3"
+        <Button as={Link} to={`/`}
+        className="btn btn-primary mx-auto"
           onClick={() => {
             handleClick();
           }}>Submit</Button>
         <Button as={Link} to={`/`}
-          className="btn btn-primary ml-3"
-          >Go Back</Button>  
+          className="btn btn-primary mx-auto mb-4"
+          style={{ 'marginTop': '20px'  }} 
+          >Go Back</Button> 
+          </Card> 
     </Container>
   );
 };
