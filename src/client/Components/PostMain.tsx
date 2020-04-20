@@ -35,19 +35,19 @@ const PostMain: React.FC<IMain> = props => {
           value={ name }
           onChange={(e: any) => setName(e.target.value)}
         />
-        <Form.Label style={{"marginTop": "25px"}}>Session</Form.Label>
-        <Form.Control as="textarea" rows="3"
-          type="text"
-          id="session"
-          value={ session }
-          onChange={(e: any) => setSession(e.target.value)}
-        />
         <Form.Label style={{"marginTop": "25px"}}>Idea Type</Form.Label>
         <Form.Control
           type="text"
           id="ideaType"
           value={ ideaType }
           onChange={(e: any) => setIdeaType(e.target.value)}
+        />
+        <Form.Label style={{"marginTop": "25px"}}>Session Input</Form.Label>
+        <Form.Control as="textarea" rows="3"
+          type="text"
+          id="session"
+          value={ session }
+          onChange={(e: any) => setSession(e.target.value)}
         />
         </Form.Group>
         </Form>
