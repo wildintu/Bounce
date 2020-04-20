@@ -6,6 +6,7 @@ import Bar from './Components/Subcomponents/Bar';
 import Collaboration from './Components/Collaboration';
 import PostMain from './Components/PostMain';
 import PostInput from './Components/PostInput';
+// import About from './Components/About';
 
 
 const App: React.FC<AppProps> = props => {
