@@ -80,7 +80,9 @@ const PostInput: React.FC<IMain> = (props: any) => {
 
   return (
     <Container>
+      <h3 className="form-group col-lg-8 mt-3">
       {idea}
+      </h3>
       <Form>
         <Form.Group className="form-group col-lg-4">
           <Form.Label>Name</Form.Label>
