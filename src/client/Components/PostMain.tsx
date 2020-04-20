@@ -26,7 +26,7 @@ const PostMain: React.FC<IMain> = props => {
 
   return (
     <Container fluid className="mb-3">
-      <Card className="col-lg-5 mt-4 mx-auto" style={{ "opacity": "0.8" }}>
+      <Card className="col-lg-5 mt-4 mx-auto" style={{ "opacity": "0.85" }}>
       <h3 className="form-group mt-3 mx-auto text-center">
         Start a Brainstorm Session!
       </h3>

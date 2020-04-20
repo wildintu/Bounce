@@ -175,7 +175,7 @@ export default class Collaboration extends React.Component<any, any> {
             </Modal.Footer>
           </Modal>
 
-          <Card className="my-5 mx-auto" style={{ "maxWidth": "1000px", "maxHeight": "700px", "opacity": "0.8" }}>
+          <Card className="my-5 mx-auto" style={{ "maxWidth": "1000px", "maxHeight": "700px", "opacity": "0.85" }}>
             <div>
               {this.state.alertMsg}
             </div>

@@ -48,7 +48,7 @@ const FadeInComp: React.FC<AppProps> = () => {
         <>
             {fadingTextPropsTransition.map(({ item, props, key }) => (
                 <animated.div key={key} style={{ ...props, position: "absolute", zIndex: 2 }}>
-                <h1 className="m-4 text-center" style={{ fontSize: "1em" }}>{item.title}</h1>
+                <h1 className="m-4 text-center text-muted" style={{ fontSize: "1.5em" }}>{item.title}</h1>
                 </animated.div>
             ))}
         </>
