@@ -155,12 +155,12 @@ export default class Collaboration extends React.Component<any, any> {
             style={{ 'marginLeft': '40px' }}
             className="btn btn-primary"
           >
-            Share Link
+            Invite
           </Button>
 
           <Modal show={this.state.show} onHide={this.handleClose} animation={true}>
             <Modal.Header closeButton>
-              <Modal.Title>Modal heading</Modal.Title>
+              <Modal.Title>Share Link</Modal.Title>
             </Modal.Header>
             <Modal.Body> {`http://localhost:3000/collaboration/${this.props.match.params.sessionid}`} </Modal.Body>
             <Modal.Footer>

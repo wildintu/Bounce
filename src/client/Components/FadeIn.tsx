@@ -40,15 +40,15 @@ const FadeInComp: React.FC<AppProps> = () => {
     React.useEffect(() => {
         const interval = setInterval(() => {
             setIndex(state => (state + 1) % leadIns.length);
-        }, 3000);
+        }, 5000);
         return () => clearInterval(interval);
     }, [leadIns.length]);
 
     return (
         <>
             {fadingTextPropsTransition.map(({ item, props, key }) => (
-                <animated.div key={key} style={{ ...props, position: "absolute" }}>
-                    <h1>{item.title}</h1>
+                <animated.div key={key} style={{ ...props, position: "absolute", zIndex: 2 }}>
+                <h1 style={{ fontSize: "0.85em" }}>{item.title}</h1>
                 </animated.div>
             ))}
         </>
