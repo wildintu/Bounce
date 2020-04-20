@@ -11,9 +11,9 @@ const HomePage: React.FC = () => {
           <Row>
             <Col>
             <Card className="d-flex align-items-center justify-content-around mb-5 mr-5" style={{ fontFamily: 'Catamaran', boxShadow: "-0.2em 0.2em 0.4em #9E9E9E", height: "40vh", width: "30vw" }}>
-                <h1 className="mb-5">Bounce</h1>
+                <h1 className="mb-5">BOUNCE</h1>
                 <FadeInComp />
-                <Button as={Link} to={`/post`} size="sm" style={{ fontSize: "0.7em" }}>Let's get started</Button>
+                <Button as={Link} to={`/post`} size="lg" style={{ fontSize: "1em" }}>Let's Get Started</Button>
               </Card>
             </Col>
           </Row>

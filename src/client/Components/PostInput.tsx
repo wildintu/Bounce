@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { RouteComponentProps } from "react-router";
 import Fetch from "./Fetch";
-import { Container, Form, Button, Row } from "react-bootstrap";
+import { Container, Form, Button, Row, Card } from "react-bootstrap";
 import { IMain } from "./PostMain";
 
 const PostInput: React.FC<IMain> = (props: any) => {
@@ -79,12 +79,13 @@ const PostInput: React.FC<IMain> = (props: any) => {
   }, [])
 
   return (
-    <Container>
-      <h3 className="form-group col-lg-8 mt-3">
+    <Container fluid className="mb-3">
+      <Card className="col-lg-5 mt-4 mx-auto" style={{ "opacity": "0.8" }}>
+      <h3 className="form-group mt-3 mx-auto text-center">
       {idea}
       </h3>
-      <Form>
-        <Form.Group className="form-group col-lg-4">
+      <Form className="mt-3">
+        <Form.Group className="form-group mx-auto my-auto">
           <Form.Label>Name</Form.Label>
           <Form.Control
             type="text"
@@ -101,18 +102,19 @@ const PostInput: React.FC<IMain> = (props: any) => {
           />
         </Form.Group>
       </Form>
-      <Button className="btn btn-primary ml-3"
+      <Button className="btn btn-primary mx-auto mb-4"
         onClick={() => {
           handleClick();
         }}>Submit Input</Button>
       <Button as={Link} to={`/collaboration/${props.match.params.sessionid}`}
-        className="btn btn-primary ml-3"
+        className="btn btn-primary mx-auto mb-4"
       >Go Back</Button>
-      <Button className="btn btn-danger ml-3"
+      <Button className="btn btn-danger mx-auto mb-4"
       onClick={() => {
         handleClickDelete();
       }}
       >Delete Input</Button>
+      </Card>
     </Container>
   );
 };
