@@ -1,26 +1,38 @@
 import React from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import FadeInComp from "./FadeIn";
+// import Logo from "../../../public/images/logoidea.png";
 
 const HomePage: React.FC = () => {
-  return (
-    <React.Fragment>
-      <main>
-      <Container fluid className="main-container d-flex align-items-center justify-content-center" style={{ height: "100%" }}>
-          <Row>
-            <Col>
-            <Card className="d-flex align-items-center justify-content-around mb-5 mr-5" style={{ fontFamily: 'Catamaran', boxShadow: "-0.2em 0.2em 0.4em #9E9E9E", height: "40vh", width: "50vw" }}>
-                <h1 className="mb-5">B O U N C E</h1>
-                <FadeInComp />
-                <Button as={Link} to={`/post`} className="mt-10" size="lg" style={{ fontSize: "1.2em" }}>Let's Get Started</Button>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
-      </main>
-    </React.Fragment>
-  );
+    return (
+        <React.Fragment>
+            <main>
+                <Container fluid className="d-flex" style={{ height: "100%" }}>
+                    <Row className="mx-auto my-auto">
+                        <Col>
+                            <Card className="mb-2 mr-5 d-flex flex-column" style={{ fontFamily: 'Catamaran', boxShadow: "-0.2em 0.2em 0.4em #9E9E9E", height: "60vh", width: "50vw" }}>
+                                {/* <span className="mb-5"> */}
+                                <Row className="d-flex" style={{ 'height': '50%' }}>
+                                    <Col lg={8} md={4} className="mx-auto d-flex" style={{ "height": "100%" }}>
+                                        <Image src={window.location.origin + "/images/logoidea.png"} className="mx-auto"
+                                            style={{ 'height': '100%' }} />
+                                    </Col>
+                                </Row>
+                                {/* </span> */}
+                                <div>
+                                    <FadeInComp />
+                                </div>
+
+                                <Button as={Link} to={`/post`} className="mx-auto mt-auto" style={{ fontSize: "1.2em", "height": "2em" }}>Let's Get Started</Button>
+                                <Row style={{ "height": "12%" }}></Row>
+                            </Card>
+                        </Col>
+                    </Row>
+                </Container>
+            </main>
+        </React.Fragment>
+    );
 };
 
 export default HomePage;
