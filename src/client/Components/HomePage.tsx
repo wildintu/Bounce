@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col, Card, Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import FadeInComp from "./FadeIn";
-// import Logo from "../../../public/images/logoidea.png";
+
 
 const HomePage: React.FC = () => {
     return (
@@ -24,7 +24,7 @@ const HomePage: React.FC = () => {
                                     <FadeInComp />
                                 </div>
 
-                                <Button as={Link} to={`/post`} className="mx-auto mt-auto" style={{ fontSize: "1.2em", "height": "2em" }}>Let's Get Started</Button>
+                                <Button as={Link} to={`/post`} id="start-btn" className="mx-auto mt-auto" style={{ fontSize: "1.2em", "height": "2em" }}>Let's Get Started</Button>
                                 <Row style={{ "height": "12%" }}></Row>
                             </Card>
                         </Col>

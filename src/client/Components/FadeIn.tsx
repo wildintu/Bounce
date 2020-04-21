@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTransition, animated } from "react-spring";
+import '../scss/app.scss';
 
 const FadeInComp: React.FC<AppProps> = () => {
     const [leadIns, setleadIns] = React.useState<ILeadIn[]>([
@@ -48,7 +49,7 @@ const FadeInComp: React.FC<AppProps> = () => {
         <>
             {fadingTextPropsTransition.map(({ item, props, key }) => (
                 <animated.div key={key} style={{ ...props, position: "absolute", zIndex: 2, "top": "55%"}}>
-                <h1 className="mx-4 text-center text-muted" style={{ fontSize: "1.5em" }}>{item.title}</h1>
+                <h1 id="boxtext" className="mx-4 text-center text-muted" style={{ fontSize: "1.5em" }}>{item.title}</h1>
                 </animated.div>
             ))}
         </>

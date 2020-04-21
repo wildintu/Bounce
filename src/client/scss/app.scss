@@ -1,8 +1,12 @@
 @import "../scss/Fade.scss";
 @import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 $theme-colors: (
     "primary": #0091ea,
     //Covalence Blue!  :D
         // 'background': #0091ea,
 );
+
+#boxtext {font-family: 'Roboto', sans-serif}
+#start-btn {font-family: 'Roboto', sans-serif}
