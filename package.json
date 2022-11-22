@@ -51,7 +51,7 @@
     "uuid": "^7.0.3",
     "vis-network": "^7.5.2",
     "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.10",
+    "webpack-cli": "^3.3.12",
     "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
